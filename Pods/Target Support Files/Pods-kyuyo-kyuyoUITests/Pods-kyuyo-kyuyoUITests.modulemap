@@ -1,0 +1,6 @@
+framework module Pods_kyuyo_kyuyoUITests {
+  umbrella header "Pods-kyuyo-kyuyoUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,831 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18044A282C809C7600541025 /* RewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18044A272C809C7600541025 /* RewardView.swift */; };
+		18044A2A2C81FBAD00541025 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18044A292C81FBAD00541025 /* TestView.swift */; };
+		18044A2C2C8209BF00541025 /* RewardInputModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18044A2B2C8209BF00541025 /* RewardInputModalView.swift */; };
+		184D96FA2C736E7000A0EFC4 /* kyuyoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D96F92C736E7000A0EFC4 /* kyuyoApp.swift */; };
+		184D96FC2C736E7000A0EFC4 /* SalaryInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D96FB2C736E7000A0EFC4 /* SalaryInputView.swift */; };
+		184D96FE2C736E7100A0EFC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184D96FD2C736E7100A0EFC4 /* Assets.xcassets */; };
+		184D97012C736E7100A0EFC4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184D97002C736E7100A0EFC4 /* Preview Assets.xcassets */; };
+		184D970B2C736E7100A0EFC4 /* kyuyoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D970A2C736E7100A0EFC4 /* kyuyoTests.swift */; };
+		184D97152C736E7100A0EFC4 /* kyuyoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D97142C736E7100A0EFC4 /* kyuyoUITests.swift */; };
+		184D97172C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D97162C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift */; };
+		184D97242C736ED300A0EFC4 /* SalaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D97232C736ED300A0EFC4 /* SalaryView.swift */; };
+		18A81E3C2C82AF2E007A91E1 /* TutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */; };
+		18AB46E52C74BAB300681087 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB46E42C74BAB300681087 /* ContentView.swift */; };
+		18AB46E72C77B84C00681087 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB46E62C77B84C00681087 /* AuthManager.swift */; };
+		18AB46EB2C78A67000681087 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18AB46EA2C78A67000681087 /* GoogleService-Info.plist */; };
+		18B794A62C78BB80001B8F25 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B794A52C78BB80001B8F25 /* ContactView.swift */; };
+		18B794A82C78BBB4001B8F25 /* HelpModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B794A72C78BBB4001B8F25 /* HelpModalView.swift */; };
+		18B794AA2C78BC61001B8F25 /* SalaryInputModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B794A92C78BC61001B8F25 /* SalaryInputModalView.swift */; };
+		18BC57212C7975CB00EEFF40 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC57202C7975CB00EEFF40 /* TopView.swift */; };
+		18BC57232C7975F700EEFF40 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC57222C7975F700EEFF40 /* SettingView.swift */; };
+		18BC57252C79761A00EEFF40 /* TermsOfServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC57242C79761A00EEFF40 /* TermsOfServiceView.swift */; };
+		18BC57272C79762F00EEFF40 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC57262C79762F00EEFF40 /* PrivacyView.swift */; };
+		18BC57292C7ACFB200EEFF40 /* EditModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC57282C7ACFB200EEFF40 /* EditModalView.swift */; };
+		18BC572B2C7AFA7C00EEFF40 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */; };
+		18BC572D2C7B35DC00EEFF40 /* SalaryGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */; };
+		18BC572F2C7B3BB700EEFF40 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572E2C7B3BB700EEFF40 /* GraphView.swift */; };
+		6A16CC70D1CBFDAA4F10B7B1 /* Pods_kyuyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3475E30F2EBBDFD035350B /* Pods_kyuyoTests.framework */; };
+		95A02D94A3DEE4F15AA48CD3 /* Pods_kyuyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712A48466D7ECDB66913C7B /* Pods_kyuyo.framework */; };
+		B7D83E5A16D6D003FBFC1DF7 /* Pods_kyuyo_kyuyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CFD81506DF64E30E2BE185 /* Pods_kyuyo_kyuyoUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		184D97072C736E7100A0EFC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 184D96EE2C736E7000A0EFC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184D96F52C736E7000A0EFC4;
+			remoteInfo = kyuyo;
+		};
+		184D97112C736E7100A0EFC4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 184D96EE2C736E7000A0EFC4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 184D96F52C736E7000A0EFC4;
+			remoteInfo = kyuyo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		18044A272C809C7600541025 /* RewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardView.swift; sourceTree = "<group>"; };
+		18044A292C81FBAD00541025 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		18044A2B2C8209BF00541025 /* RewardInputModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardInputModalView.swift; sourceTree = "<group>"; };
+		184D96F62C736E7000A0EFC4 /* kyuyo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kyuyo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		184D96F92C736E7000A0EFC4 /* kyuyoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kyuyoApp.swift; sourceTree = "<group>"; };
+		184D96FB2C736E7000A0EFC4 /* SalaryInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryInputView.swift; sourceTree = "<group>"; };
+		184D96FD2C736E7100A0EFC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		184D97002C736E7100A0EFC4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		184D97062C736E7100A0EFC4 /* kyuyoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kyuyoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		184D970A2C736E7100A0EFC4 /* kyuyoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kyuyoTests.swift; sourceTree = "<group>"; };
+		184D97102C736E7100A0EFC4 /* kyuyoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kyuyoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		184D97142C736E7100A0EFC4 /* kyuyoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kyuyoUITests.swift; sourceTree = "<group>"; };
+		184D97162C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kyuyoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		184D97232C736ED300A0EFC4 /* SalaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryView.swift; sourceTree = "<group>"; };
+		18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; };
+		18AB46E42C74BAB300681087 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18AB46E62C77B84C00681087 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		18AB46EA2C78A67000681087 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18B794A42C78AB31001B8F25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18B794A52C78BB80001B8F25 /* ContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		18B794A72C78BBB4001B8F25 /* HelpModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpModalView.swift; sourceTree = "<group>"; };
+		18B794A92C78BC61001B8F25 /* SalaryInputModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryInputModalView.swift; sourceTree = "<group>"; };
+		18BC57202C7975CB00EEFF40 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		18BC57222C7975F700EEFF40 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		18BC57242C79761A00EEFF40 /* TermsOfServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceView.swift; sourceTree = "<group>"; };
+		18BC57262C79762F00EEFF40 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		18BC57282C7ACFB200EEFF40 /* EditModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditModalView.swift; sourceTree = "<group>"; };
+		18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryGraphView.swift; sourceTree = "<group>"; };
+		18BC572E2C7B3BB700EEFF40 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		21EA5B90299C66E50CEB9F23 /* Pods-kyuyo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo.release.xcconfig"; path = "Target Support Files/Pods-kyuyo/Pods-kyuyo.release.xcconfig"; sourceTree = "<group>"; };
+		3608E396B116247E7DEA06DE /* Pods-kyuyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyoTests.debug.xcconfig"; path = "Target Support Files/Pods-kyuyoTests/Pods-kyuyoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		56E458D8E3496ECF0C9A4D86 /* Pods-kyuyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo.debug.xcconfig"; path = "Target Support Files/Pods-kyuyo/Pods-kyuyo.debug.xcconfig"; sourceTree = "<group>"; };
+		725C053D576D315EE537D6A2 /* Pods-kyuyoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyoTests.release.xcconfig"; path = "Target Support Files/Pods-kyuyoTests/Pods-kyuyoTests.release.xcconfig"; sourceTree = "<group>"; };
+		7712A48466D7ECDB66913C7B /* Pods_kyuyo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kyuyo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		780885FA3E82756CEBB96F9D /* Pods-kyuyo-kyuyoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo-kyuyoUITests.release.xcconfig"; path = "Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C6CFD81506DF64E30E2BE185 /* Pods_kyuyo_kyuyoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kyuyo_kyuyoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6718B33D071741A0D427714 /* Pods-kyuyo-kyuyoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo-kyuyoUITests.debug.xcconfig"; path = "Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		FE3475E30F2EBBDFD035350B /* Pods_kyuyoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kyuyoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		184D96F32C736E7000A0EFC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95A02D94A3DEE4F15AA48CD3 /* Pods_kyuyo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D97032C736E7100A0EFC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A16CC70D1CBFDAA4F10B7B1 /* Pods_kyuyoTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D970D2C736E7100A0EFC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7D83E5A16D6D003FBFC1DF7 /* Pods_kyuyo_kyuyoUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		099CA3997575A7D9E03BD1EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				56E458D8E3496ECF0C9A4D86 /* Pods-kyuyo.debug.xcconfig */,
+				21EA5B90299C66E50CEB9F23 /* Pods-kyuyo.release.xcconfig */,
+				F6718B33D071741A0D427714 /* Pods-kyuyo-kyuyoUITests.debug.xcconfig */,
+				780885FA3E82756CEBB96F9D /* Pods-kyuyo-kyuyoUITests.release.xcconfig */,
+				3608E396B116247E7DEA06DE /* Pods-kyuyoTests.debug.xcconfig */,
+				725C053D576D315EE537D6A2 /* Pods-kyuyoTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		184D96ED2C736E7000A0EFC4 = {
+			isa = PBXGroup;
+			children = (
+				184D96F82C736E7000A0EFC4 /* kyuyo */,
+				184D97092C736E7100A0EFC4 /* kyuyoTests */,
+				184D97132C736E7100A0EFC4 /* kyuyoUITests */,
+				184D96F72C736E7000A0EFC4 /* Products */,
+				099CA3997575A7D9E03BD1EC /* Pods */,
+				26BF6CB0D36FAABFBA4D8857 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		184D96F72C736E7000A0EFC4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				184D96F62C736E7000A0EFC4 /* kyuyo.app */,
+				184D97062C736E7100A0EFC4 /* kyuyoTests.xctest */,
+				184D97102C736E7100A0EFC4 /* kyuyoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		184D96F82C736E7000A0EFC4 /* kyuyo */ = {
+			isa = PBXGroup;
+			children = (
+				18B794A42C78AB31001B8F25 /* Info.plist */,
+				184D96F92C736E7000A0EFC4 /* kyuyoApp.swift */,
+				18AB46E62C77B84C00681087 /* AuthManager.swift */,
+				184D96FB2C736E7000A0EFC4 /* SalaryInputView.swift */,
+				18B794A52C78BB80001B8F25 /* ContactView.swift */,
+				18B794A72C78BBB4001B8F25 /* HelpModalView.swift */,
+				18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */,
+				18B794A92C78BC61001B8F25 /* SalaryInputModalView.swift */,
+				18BC57282C7ACFB200EEFF40 /* EditModalView.swift */,
+				18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */,
+				184D97232C736ED300A0EFC4 /* SalaryView.swift */,
+				18044A272C809C7600541025 /* RewardView.swift */,
+				18044A2B2C8209BF00541025 /* RewardInputModalView.swift */,
+				18BC57202C7975CB00EEFF40 /* TopView.swift */,
+				18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */,
+				18BC572E2C7B3BB700EEFF40 /* GraphView.swift */,
+				18AB46E42C74BAB300681087 /* ContentView.swift */,
+				18044A292C81FBAD00541025 /* TestView.swift */,
+				18BC57222C7975F700EEFF40 /* SettingView.swift */,
+				18BC57262C79762F00EEFF40 /* PrivacyView.swift */,
+				18BC57242C79761A00EEFF40 /* TermsOfServiceView.swift */,
+				184D96FD2C736E7100A0EFC4 /* Assets.xcassets */,
+				18AB46EA2C78A67000681087 /* GoogleService-Info.plist */,
+				184D96FF2C736E7100A0EFC4 /* Preview Content */,
+			);
+			path = kyuyo;
+			sourceTree = "<group>";
+		};
+		184D96FF2C736E7100A0EFC4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				184D97002C736E7100A0EFC4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		184D97092C736E7100A0EFC4 /* kyuyoTests */ = {
+			isa = PBXGroup;
+			children = (
+				184D970A2C736E7100A0EFC4 /* kyuyoTests.swift */,
+			);
+			path = kyuyoTests;
+			sourceTree = "<group>";
+		};
+		184D97132C736E7100A0EFC4 /* kyuyoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				184D97142C736E7100A0EFC4 /* kyuyoUITests.swift */,
+				184D97162C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift */,
+			);
+			path = kyuyoUITests;
+			sourceTree = "<group>";
+		};
+		26BF6CB0D36FAABFBA4D8857 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7712A48466D7ECDB66913C7B /* Pods_kyuyo.framework */,
+				C6CFD81506DF64E30E2BE185 /* Pods_kyuyo_kyuyoUITests.framework */,
+				FE3475E30F2EBBDFD035350B /* Pods_kyuyoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		184D96F52C736E7000A0EFC4 /* kyuyo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184D971A2C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyo" */;
+			buildPhases = (
+				BBCFF19F5C721E31A9B080AB /* [CP] Check Pods Manifest.lock */,
+				184D96F22C736E7000A0EFC4 /* Sources */,
+				184D96F32C736E7000A0EFC4 /* Frameworks */,
+				184D96F42C736E7000A0EFC4 /* Resources */,
+				8E7F8C0B7E4978AA300E6486 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kyuyo;
+			productName = kyuyo;
+			productReference = 184D96F62C736E7000A0EFC4 /* kyuyo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		184D97052C736E7100A0EFC4 /* kyuyoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184D971D2C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyoTests" */;
+			buildPhases = (
+				02A9A33A834393ED236D162B /* [CP] Check Pods Manifest.lock */,
+				184D97022C736E7100A0EFC4 /* Sources */,
+				184D97032C736E7100A0EFC4 /* Frameworks */,
+				184D97042C736E7100A0EFC4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				184D97082C736E7100A0EFC4 /* PBXTargetDependency */,
+			);
+			name = kyuyoTests;
+			productName = kyuyoTests;
+			productReference = 184D97062C736E7100A0EFC4 /* kyuyoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		184D970F2C736E7100A0EFC4 /* kyuyoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 184D97202C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyoUITests" */;
+			buildPhases = (
+				19B8A39DEA88E0C7A1108C63 /* [CP] Check Pods Manifest.lock */,
+				184D970C2C736E7100A0EFC4 /* Sources */,
+				184D970D2C736E7100A0EFC4 /* Frameworks */,
+				184D970E2C736E7100A0EFC4 /* Resources */,
+				BAF0A33AD8E60DEBEE4E3736 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				184D97122C736E7100A0EFC4 /* PBXTargetDependency */,
+			);
+			name = kyuyoUITests;
+			productName = kyuyoUITests;
+			productReference = 184D97102C736E7100A0EFC4 /* kyuyoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		184D96EE2C736E7000A0EFC4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1520;
+				LastUpgradeCheck = 1520;
+				TargetAttributes = {
+					184D96F52C736E7000A0EFC4 = {
+						CreatedOnToolsVersion = 15.2;
+					};
+					184D97052C736E7100A0EFC4 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 184D96F52C736E7000A0EFC4;
+					};
+					184D970F2C736E7100A0EFC4 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = 184D96F52C736E7000A0EFC4;
+					};
+				};
+			};
+			buildConfigurationList = 184D96F12C736E7000A0EFC4 /* Build configuration list for PBXProject "kyuyo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 184D96ED2C736E7000A0EFC4;
+			productRefGroup = 184D96F72C736E7000A0EFC4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				184D96F52C736E7000A0EFC4 /* kyuyo */,
+				184D97052C736E7100A0EFC4 /* kyuyoTests */,
+				184D970F2C736E7100A0EFC4 /* kyuyoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		184D96F42C736E7000A0EFC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184D97012C736E7100A0EFC4 /* Preview Assets.xcassets in Resources */,
+				18AB46EB2C78A67000681087 /* GoogleService-Info.plist in Resources */,
+				184D96FE2C736E7100A0EFC4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D97042C736E7100A0EFC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D970E2C736E7100A0EFC4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		02A9A33A834393ED236D162B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kyuyoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		19B8A39DEA88E0C7A1108C63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kyuyo-kyuyoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E7F8C0B7E4978AA300E6486 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAF0A33AD8E60DEBEE4E3736 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBCFF19F5C721E31A9B080AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kyuyo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		184D96F22C736E7000A0EFC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184D97242C736ED300A0EFC4 /* SalaryView.swift in Sources */,
+				18BC57252C79761A00EEFF40 /* TermsOfServiceView.swift in Sources */,
+				18BC57232C7975F700EEFF40 /* SettingView.swift in Sources */,
+				18044A2C2C8209BF00541025 /* RewardInputModalView.swift in Sources */,
+				18B794AA2C78BC61001B8F25 /* SalaryInputModalView.swift in Sources */,
+				18BC57292C7ACFB200EEFF40 /* EditModalView.swift in Sources */,
+				18B794A62C78BB80001B8F25 /* ContactView.swift in Sources */,
+				18044A2A2C81FBAD00541025 /* TestView.swift in Sources */,
+				18BC57272C79762F00EEFF40 /* PrivacyView.swift in Sources */,
+				18BC572F2C7B3BB700EEFF40 /* GraphView.swift in Sources */,
+				18044A282C809C7600541025 /* RewardView.swift in Sources */,
+				18B794A82C78BBB4001B8F25 /* HelpModalView.swift in Sources */,
+				184D96FC2C736E7000A0EFC4 /* SalaryInputView.swift in Sources */,
+				18AB46E52C74BAB300681087 /* ContentView.swift in Sources */,
+				18BC572B2C7AFA7C00EEFF40 /* ColorPickerView.swift in Sources */,
+				184D96FA2C736E7000A0EFC4 /* kyuyoApp.swift in Sources */,
+				18BC572D2C7B35DC00EEFF40 /* SalaryGraphView.swift in Sources */,
+				18BC57212C7975CB00EEFF40 /* TopView.swift in Sources */,
+				18A81E3C2C82AF2E007A91E1 /* TutorialModalView.swift in Sources */,
+				18AB46E72C77B84C00681087 /* AuthManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D97022C736E7100A0EFC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184D970B2C736E7100A0EFC4 /* kyuyoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		184D970C2C736E7100A0EFC4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				184D97172C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift in Sources */,
+				184D97152C736E7100A0EFC4 /* kyuyoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		184D97082C736E7100A0EFC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 184D96F52C736E7000A0EFC4 /* kyuyo */;
+			targetProxy = 184D97072C736E7100A0EFC4 /* PBXContainerItemProxy */;
+		};
+		184D97122C736E7100A0EFC4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 184D96F52C736E7000A0EFC4 /* kyuyo */;
+			targetProxy = 184D97112C736E7100A0EFC4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		184D97182C736E7100A0EFC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		184D97192C736E7100A0EFC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		184D971B2C736E7100A0EFC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56E458D8E3496ECF0C9A4D86 /* Pods-kyuyo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"kyuyo/Preview Content\"";
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kyuyo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		184D971C2C736E7100A0EFC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21EA5B90299C66E50CEB9F23 /* Pods-kyuyo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"kyuyo/Preview Content\"";
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = kyuyo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyo";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		184D971E2C736E7100A0EFC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3608E396B116247E7DEA06DE /* Pods-kyuyoTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kyuyo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/kyuyo";
+			};
+			name = Debug;
+		};
+		184D971F2C736E7100A0EFC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 725C053D576D315EE537D6A2 /* Pods-kyuyoTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kyuyo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/kyuyo";
+			};
+			name = Release;
+		};
+		184D97212C736E7100A0EFC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6718B33D071741A0D427714 /* Pods-kyuyo-kyuyoUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = kyuyo;
+			};
+			name = Debug;
+		};
+		184D97222C736E7100A0EFC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 780885FA3E82756CEBB96F9D /* Pods-kyuyo-kyuyoUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F3XS565TSX;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = kyuyo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		184D96F12C736E7000A0EFC4 /* Build configuration list for PBXProject "kyuyo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184D97182C736E7100A0EFC4 /* Debug */,
+				184D97192C736E7100A0EFC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		184D971A2C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184D971B2C736E7100A0EFC4 /* Debug */,
+				184D971C2C736E7100A0EFC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		184D971D2C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184D971E2C736E7100A0EFC4 /* Debug */,
+				184D971F2C736E7100A0EFC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		184D97202C736E7100A0EFC4 /* Build configuration list for PBXNativeTarget "kyuyoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				184D97212C736E7100A0EFC4 /* Debug */,
+				184D97222C736E7100A0EFC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 184D96EE2C736E7000A0EFC4 /* Project object */;
+}
