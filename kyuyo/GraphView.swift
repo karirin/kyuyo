@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GraphView: View {
     @ObservedObject var viewModel = SalaryGraphViewModel()
+    @ObservedObject var authManager = AuthManager()
     
     var body: some View {
         VStack {
@@ -22,36 +23,95 @@ struct GraphView: View {
                 }
                 Spacer()
             } else if viewModel.salaryHistorys.isEmpty {
-                VStack(spacing: -40) {
-                    Spacer()
-                    Text("データありません\n月のお給料が入るとグラフ化されます")
-                        .font(.system(size: 18))
-                    Image("グラフ")
-                        .resizable()
-                        .scaledToFit()
-                        .padding(40)
-                    Spacer()
+                VStack(spacing: 20) {
+                    if let createTime = authManager.userData?.createTime {
+                        VStack {
+                            HStack{
+                                Image(systemName: "calendar.circle")
+                                    .resizable()
+                                    .frame(width: 30,height: 30)
+                                Text("\(createTime)から現在まで")
+                                    .font(.system(size: isSmallDevice() ? 23 : 25))
+                                    .bold()
+                            }
+                        }.frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(Color.white)
+                                    .shadow(radius: 1)
+                            )
+                    }
+                    ZStack {
+                        SalaryGraphDummyView()
+                            .frame(maxWidth: .infinity)
+                        Text("データがありません\n月のお給料が入るとグラフ化されます")
+                            .bold()
+                            .font(.system(size: isSmallDevice() ? 18 : 20))
+                    }
+                    VStack{
+                        HStack {
+                            Image(systemName: "dollarsign.circle")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                            Text("累計給与金額")
+                                .font(.system(size: 36))
+                        }
+                        Text("¥0")  // 合計金額を表示
+                            .font(.system(size: 50))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.white)
+                            .shadow(radius: 1)
+                    )
                 }
+                .frame(maxWidth: .infinity,maxHeight: .infinity)
+                .padding()
             } else {
                 Spacer()
-                SalaryGraphView(viewModel: viewModel)
-                VStack{
-                    HStack {
-                        Image(systemName: "dollarsign.circle")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                        Text("現在までの累計給与金額")
-                            .font(.system(size: 26))
+                VStack(spacing: 20) {
+                    if let createTime = authManager.userData?.createTime {
+                        VStack {
+                            HStack{
+                                Image(systemName: "calendar.circle")
+                                    .resizable()
+                                    .frame(width: 30,height: 30)
+                                Text("\(createTime)から現在まで")
+                                    .font(.system(size: isSmallDevice() ? 23 : 25))
+                                    .bold()
+                            }
+                        }.frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .fill(Color.white)
+                                    .shadow(radius: 1)
+                            )
                     }
-                    Text("¥\(Int(viewModel.totalSalary))")  // 合計金額を表示
-                        .font(.system(size: 50))
+                    SalaryGraphView(viewModel: viewModel)
+                        .frame(maxWidth: .infinity)
+                    VStack{
+                        HStack {
+                            Image(systemName: "dollarsign.circle")
+                                .resizable()
+                                .frame(width: 30, height: 30)
+                            Text("累計給与金額")
+                                .font(.system(size: 36))
+                        }
+                        Text("¥\(Int(viewModel.totalSalary))")  // 合計金額を表示
+                            .font(.system(size: 50))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(Color.white)
+                            .shadow(radius: 1)
+                    )
                 }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
-                        .shadow(radius: 1)
-                )
                 .padding()
                 Spacer()
             }
@@ -59,6 +119,11 @@ struct GraphView: View {
         .background(Color("backgroundColor"))
         .onAppear {
             viewModel.fetchSalaryHistorys()
+            authManager.fetchUserData { success, error in
+                if success {
+                    
+                }
+            }
         }
         .foregroundStyle(Color("fontGray"))
     }

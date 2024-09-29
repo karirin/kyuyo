@@ -41,14 +41,14 @@ struct SalaryGraphView: View {
                 
             }
             .chartXAxis(.hidden)
-            .frame(height: 300)
+            .frame(height: 280)
             .padding()
             .background(
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
                         .shadow(radius: 1)
             )
-            .padding()
+//            .padding()
             .animation(.easeInOut(duration: 1.0), value: viewModel.salaryHistorys)
         }
         .onAppear {

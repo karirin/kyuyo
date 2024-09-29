@@ -65,6 +65,8 @@ struct HelpModalView: View {
                             .background(Color.gray)
                             .cornerRadius(24)
                     })
+                    .opacity(text.isEmpty ? 0.5 : 1)
+                    .disabled(text.isEmpty)
                     .shadow(radius: 3)
                     .padding(.top,10)
 
@@ -78,9 +80,18 @@ struct HelpModalView: View {
                     }
                 }
             }
+            .alert(isPresented: $showAlert) { // アラートを表示する
+                Alert(
+                    title: Text("送信されました"),
+                    message: Text("お問い合わせありがとうございました。"),
+                    dismissButton: .default(Text("OK")) {
+                        isPresented = false
+                    }
+                )
+            }
             .frame(width: isSmallDevice() ? 290: 320)
             .foregroundColor(Color("fontGray"))
-            .padding()
+            .padding(10)
         .background(Color("backgroundColor"))
         .cornerRadius(20)
         .shadow(radius: 10)

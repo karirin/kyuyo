@@ -70,12 +70,22 @@ struct RewardInputModalView: View {
             }
             .padding(.vertical)
 
-            Button("保存") {
+            Button(action: {
                 if let amount = Double(rewardAmount) {
                     onSave(rewardTitle, amount, selectedIcon)
                     isPresented = false
                 }
-            }
+            }, label: {
+                Text("登録")
+                .frame(maxWidth:.infinity)
+            })
+            .padding()
+            .background(Color("buttonColor"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding(.top)
+            .padding(.bottom)
+            .shadow(radius: 1)
         }
         .padding()
         .frame(maxHeight: .infinity)

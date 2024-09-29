@@ -11,6 +11,7 @@ target 'kyuyo' do
   pod 'Firebase/Database'
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
+  pod 'Google-Mobile-Ads-SDK', '<=11.5.0'
   pod 'FSCalendar'
 
   post_install do |installer|

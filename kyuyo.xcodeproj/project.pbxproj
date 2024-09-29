@@ -19,6 +19,9 @@
 		184D97172C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D97162C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift */; };
 		184D97242C736ED300A0EFC4 /* SalaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184D97232C736ED300A0EFC4 /* SalaryView.swift */; };
 		18A81E3C2C82AF2E007A91E1 /* TutorialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */; };
+		18A81E3E2C832127007A91E1 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81E3D2C832127007A91E1 /* BannerView.swift */; };
+		18A81E402C841DD0007A91E1 /* SalaryGraphDummyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81E3F2C841DD0007A91E1 /* SalaryGraphDummyView.swift */; };
+		18A81E422C8422BD007A91E1 /* RewardTurialModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A81E412C8422BD007A91E1 /* RewardTurialModalView.swift */; };
 		18AB46E52C74BAB300681087 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB46E42C74BAB300681087 /* ContentView.swift */; };
 		18AB46E72C77B84C00681087 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB46E62C77B84C00681087 /* AuthManager.swift */; };
 		18AB46EB2C78A67000681087 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18AB46EA2C78A67000681087 /* GoogleService-Info.plist */; };
@@ -33,6 +36,7 @@
 		18BC572B2C7AFA7C00EEFF40 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */; };
 		18BC572D2C7B35DC00EEFF40 /* SalaryGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */; };
 		18BC572F2C7B3BB700EEFF40 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BC572E2C7B3BB700EEFF40 /* GraphView.swift */; };
+		18FC72472C8F371400A95341 /* interstitial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FC72462C8F371400A95341 /* interstitial.swift */; };
 		6A16CC70D1CBFDAA4F10B7B1 /* Pods_kyuyoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3475E30F2EBBDFD035350B /* Pods_kyuyoTests.framework */; };
 		95A02D94A3DEE4F15AA48CD3 /* Pods_kyuyo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7712A48466D7ECDB66913C7B /* Pods_kyuyo.framework */; };
 		B7D83E5A16D6D003FBFC1DF7 /* Pods_kyuyo_kyuyoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CFD81506DF64E30E2BE185 /* Pods_kyuyo_kyuyoUITests.framework */; };
@@ -71,6 +75,9 @@
 		184D97162C736E7100A0EFC4 /* kyuyoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kyuyoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		184D97232C736ED300A0EFC4 /* SalaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryView.swift; sourceTree = "<group>"; };
 		18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialModalView.swift; sourceTree = "<group>"; };
+		18A81E3D2C832127007A91E1 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		18A81E3F2C841DD0007A91E1 /* SalaryGraphDummyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryGraphDummyView.swift; sourceTree = "<group>"; };
+		18A81E412C8422BD007A91E1 /* RewardTurialModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardTurialModalView.swift; sourceTree = "<group>"; };
 		18AB46E42C74BAB300681087 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18AB46E62C77B84C00681087 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		18AB46EA2C78A67000681087 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -86,6 +93,7 @@
 		18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalaryGraphView.swift; sourceTree = "<group>"; };
 		18BC572E2C7B3BB700EEFF40 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		18FC72462C8F371400A95341 /* interstitial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = interstitial.swift; sourceTree = "<group>"; };
 		21EA5B90299C66E50CEB9F23 /* Pods-kyuyo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo.release.xcconfig"; path = "Target Support Files/Pods-kyuyo/Pods-kyuyo.release.xcconfig"; sourceTree = "<group>"; };
 		3608E396B116247E7DEA06DE /* Pods-kyuyoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyoTests.debug.xcconfig"; path = "Target Support Files/Pods-kyuyoTests/Pods-kyuyoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		56E458D8E3496ECF0C9A4D86 /* Pods-kyuyo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kyuyo.debug.xcconfig"; path = "Target Support Files/Pods-kyuyo/Pods-kyuyo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -166,10 +174,13 @@
 				18B794A42C78AB31001B8F25 /* Info.plist */,
 				184D96F92C736E7000A0EFC4 /* kyuyoApp.swift */,
 				18AB46E62C77B84C00681087 /* AuthManager.swift */,
+				18FC72462C8F371400A95341 /* interstitial.swift */,
 				184D96FB2C736E7000A0EFC4 /* SalaryInputView.swift */,
+				18A81E3D2C832127007A91E1 /* BannerView.swift */,
 				18B794A52C78BB80001B8F25 /* ContactView.swift */,
 				18B794A72C78BBB4001B8F25 /* HelpModalView.swift */,
 				18A81E3B2C82AF2E007A91E1 /* TutorialModalView.swift */,
+				18A81E412C8422BD007A91E1 /* RewardTurialModalView.swift */,
 				18B794A92C78BC61001B8F25 /* SalaryInputModalView.swift */,
 				18BC57282C7ACFB200EEFF40 /* EditModalView.swift */,
 				18BC572A2C7AFA7C00EEFF40 /* ColorPickerView.swift */,
@@ -178,6 +189,7 @@
 				18044A2B2C8209BF00541025 /* RewardInputModalView.swift */,
 				18BC57202C7975CB00EEFF40 /* TopView.swift */,
 				18BC572C2C7B35DC00EEFF40 /* SalaryGraphView.swift */,
+				18A81E3F2C841DD0007A91E1 /* SalaryGraphDummyView.swift */,
 				18BC572E2C7B3BB700EEFF40 /* GraphView.swift */,
 				18AB46E42C74BAB300681087 /* ContentView.swift */,
 				18044A292C81FBAD00541025 /* TestView.swift */,
@@ -238,6 +250,7 @@
 				184D96F32C736E7000A0EFC4 /* Frameworks */,
 				184D96F42C736E7000A0EFC4 /* Resources */,
 				8E7F8C0B7E4978AA300E6486 /* [CP] Embed Pods Frameworks */,
+				8C1666E64EC66ECA0197B8CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +289,7 @@
 				184D970D2C736E7100A0EFC4 /* Frameworks */,
 				184D970E2C736E7100A0EFC4 /* Resources */,
 				BAF0A33AD8E60DEBEE4E3736 /* [CP] Embed Pods Frameworks */,
+				15B4D95D293BE271C3006BEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -380,6 +394,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		15B4D95D293BE271C3006BEA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kyuyo-kyuyoUITests/Pods-kyuyo-kyuyoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		19B8A39DEA88E0C7A1108C63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -400,6 +431,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8C1666E64EC66ECA0197B8CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kyuyo/Pods-kyuyo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8E7F8C0B7E4978AA300E6486 /* [CP] Embed Pods Frameworks */ = {
@@ -465,6 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A81E422C8422BD007A91E1 /* RewardTurialModalView.swift in Sources */,
 				184D97242C736ED300A0EFC4 /* SalaryView.swift in Sources */,
 				18BC57252C79761A00EEFF40 /* TermsOfServiceView.swift in Sources */,
 				18BC57232C7975F700EEFF40 /* SettingView.swift in Sources */,
@@ -479,9 +528,12 @@
 				18B794A82C78BBB4001B8F25 /* HelpModalView.swift in Sources */,
 				184D96FC2C736E7000A0EFC4 /* SalaryInputView.swift in Sources */,
 				18AB46E52C74BAB300681087 /* ContentView.swift in Sources */,
+				18A81E3E2C832127007A91E1 /* BannerView.swift in Sources */,
 				18BC572B2C7AFA7C00EEFF40 /* ColorPickerView.swift in Sources */,
+				18FC72472C8F371400A95341 /* interstitial.swift in Sources */,
 				184D96FA2C736E7000A0EFC4 /* kyuyoApp.swift in Sources */,
 				18BC572D2C7B35DC00EEFF40 /* SalaryGraphView.swift in Sources */,
+				18A81E402C841DD0007A91E1 /* SalaryGraphDummyView.swift in Sources */,
 				18BC57212C7975CB00EEFF40 /* TopView.swift in Sources */,
 				18A81E3C2C82AF2E007A91E1 /* TutorialModalView.swift in Sources */,
 				18AB46E72C77B84C00681087 /* AuthManager.swift in Sources */,
@@ -647,13 +699,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEVELOPMENT_ASSET_PATHS = "\"kyuyo/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kyuyo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "サラリー";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -664,7 +717,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -680,13 +733,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.6;
 				DEVELOPMENT_ASSET_PATHS = "\"kyuyo/Preview Content\"";
 				DEVELOPMENT_TEAM = F3XS565TSX;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = kyuyo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "サラリー";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -697,7 +751,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "Swift-Beginners-app.kyuyo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

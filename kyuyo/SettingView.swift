@@ -17,8 +17,8 @@ struct OtherApp: Identifiable {
 
 extension OtherApp {
     static let allApps = [
-        OtherApp(name: "DrawGoal", description: "「DrawGoal」は目標達成をサポートするアプリケーションです。自らの目標を設定し、その達成に向けての日々の進捗を記録することができます。", appStoreLink: "https://apps.apple.com/us/app/drawgoal-%E7%9B%AE%E6%A8%99%E9%81%94%E6%88%90%E6%94%AF%E6%8F%B4%E3%82%A2%E3%83%97%E3%83%AA/id6451417773"),
-        OtherApp(name: "ご褒美ToDo", description: "自分へのご褒美の予定を立てることができるアプリです。", appStoreLink: "https://apps.apple.com/us/app/%E3%81%94%E8%A4%92%E7%BE%8Etodo/id6474063404"),
+        OtherApp(name: "AIトーク チャットモ", description: "AIを搭載した可愛いキャラクターと会話して楽しむことができます。会話を重ねると親密度が上げていくことができます。", appStoreLink: "https://apps.apple.com/us/app/ai%E3%83%88%E3%83%BC%E3%82%AF-%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%83%A2/id6478230196"),
+        OtherApp(name: "シュウカン|習慣支援アプリ", description: "1週間の習慣をサポートするアプリです。「本を1冊読む」や「3時間勉強する」など1週間の習慣を決めて、進捗があれば記録をしていきます。", appStoreLink: "https://apps.apple.com/us/app/%E3%82%B7%E3%83%A5%E3%82%A6%E3%82%AB%E3%83%B3-%E7%BF%92%E6%85%A3%E6%94%AF%E6%8F%B4%E3%82%A2%E3%83%97%E3%83%AA/id6480456838"),
         OtherApp(name: "ITクエスト", description: "ゲーム感覚でITの知識が学べるアプリ。『ITパスポート』『基本情報技術者試験』『応用技術者試験』などIT周りの勉強をゲーム感覚で学べます。", appStoreLink: "https://apps.apple.com/us/app/it%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-it%E3%81%A8%E5%95%8F%E9%A1%8C%E3%81%A8%E5%8B%89%E5%BC%B7%E3%81%A8%E5%AD%A6%E7%BF%92%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA/id6469339499"),
         OtherApp(name: "お金クエスト", description: "ゲーム感覚でお金の知識が学べるアプリ。税金、投資、節約、予算管理などお金周りの勉強をゲーム感覚で学べます。", appStoreLink: "https://apps.apple.com/us/app/%E3%81%8A%E9%87%91%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88/id6476828253"),
         OtherApp(name: "英語クエスト", description: "ゲーム感覚で英語の知識が学べるアプリ。「英単語」「英熟語」「英文法」に分かれており、それぞれ『英検』『TOIEC』の難易度別に勉強をゲーム感覚で学べます。", appStoreLink: "https://apps.apple.com/us/app/%E8%8B%B1%E8%AA%9E%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88-%E8%8B%B1%E8%AA%9E%E3%81%AE%E5%95%8F%E9%A1%8C%E3%81%AE%E5%8B%89%E5%BC%B7%E3%81%A8%E5%AD%A6%E7%BF%92%E3%81%8C%E3%81%A7%E3%81%8D%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA/id6477769441"),

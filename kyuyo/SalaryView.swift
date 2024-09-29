@@ -129,9 +129,6 @@ struct ProgressRing: View, Animatable {
                 .animation(.easeInOut(duration: 4.0), value: value) // アニメーションの速度を調整
         }
         .frame(width: 150, height: 150)
-        .onAppear{
-            print("gradient:\(gradient)")
-        }
     }
 }
 
@@ -157,217 +154,268 @@ struct SalaryView: View {
     @State private var showCreateButton = false  // 新規作成ボタンを表示するための状態
     @State private var isLoading: Bool = true  // ローディング状態を管理するための状態
     @State private var accumulatedSalary: Double = 0
+    @State private var showDetails: Bool = false
+    @State private var adFlag: Bool = false
+    private let adViewControllerRepresentable = AdViewControllerRepresentable()
+    private let interstitial = Interstitial()
 
     var body: some View {
-        ZStack {
-            if isLoading {
-                VStack{
-                    Spacer()
-                    HStack{
+        VStack(spacing: -20) {
+            BannerView()
+               .frame(height: 70)
+//            Spacer()
+//                .frame(height: 70)
+            ZStack {
+                if isLoading {
+                    VStack{
                         Spacer()
-                        ProgressView()
-                            .scaleEffect(2)
+                        HStack{
+                            Spacer()
+                            ProgressView()
+                                .scaleEffect(2)
+                            Spacer()
+                        }
                         Spacer()
                     }
-                    Spacer()
-                }
-            } else {
-                let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
-                VStack {
-                    Spacer()
-                    if showCreateButton {
-                        ZStack {
-                            VStack {
-                                Text("料日までの累計収入額")
-                                    .font(.system(size: 38))
-                                    .opacity(0.4)
-                            }
-                            .padding(20)
-                            
-                            Circle()
-                                .stroke(lineWidth: 25)
-                                .foregroundStyle(.gray.opacity(0.3))
-                                .padding(isSmallDevice() ? -90 : -100)
-                                .frame(width: 150, height: 150)
-                            VStack{
-                                Spacer()
-                                HStack{
+                } else {
+                    let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
+                    VStack {
+                        Spacer()
+                        if showCreateButton {
+                            ZStack {
+                                VStack {
+                                    Text("給料日までの収入額")
+                                        .font(.system(size: isSmallDevice() ? 32 : 34))
+                                        .opacity(0.4)
+                                }
+                                .padding(20)
+                                
+                                Circle()
+                                    .stroke(lineWidth: 25)
+                                    .foregroundStyle(.gray.opacity(0.3))
+                                    .padding(isSmallDevice() ? -90 : -100)
+                                    .frame(width: 150, height: 150)
+                                VStack{
                                     Spacer()
-                                    Text("")
+                                    HStack{
+                                        Spacer()
+                                        Text("")
+                                        Spacer()
+                                    }
                                     Spacer()
                                 }
-                                Spacer()
-                            }
-                            .background(Color(.gray).opacity(0.3))
-                            VStack{
-                                Button(action: {
-                                    // 新規作成のアクション
-                                    modalFlag = true
-                                }) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .font(.system(size: 50))
-                                }
-                                Text("月のお給料と給料日を入力してください")
-                                    .font(.system(size: 20))
-                            }
-                        }
-                    } else {
-                        ZStack {
-                            VStack{
-                                Spacer()
-                                HStack {
-                                    Spacer()
+                                .background(Color(.gray).opacity(0.3))
+                                VStack{
                                     Button(action: {
-                                        editFlag = true
+                                        // 新規作成のアクション
+                                        modalFlag = true
                                     }) {
-                                        Image(systemName: "gearshape.fill")
-                                            .font(.system(size: 30))
+                                        Image(systemName: "plus.circle.fill")
+                                            .font(.system(size: 50))
                                     }
-                                    .padding(5)
-                                    .overlay(
-                                        RoundedRectangle(cornerRadius: 10)
-                                            .stroke(Color("fontGray"), lineWidth: 1)
-                                    )
-                                }.padding(.trailing)
-                                Spacer()
-                                    .frame(height: 110)
-                                ZStack {
-                                    VStack {
-                                        Text("給料日までの収入額")
-                                            .font(.system(size: 34))
-                                        Text("¥\(Int(calculator.accumulatedSalary(for: selectedUnit)))")
-                                            .font(.system(size: 54))
-                                            .scaleEffect(scaleEffect)
-                                            .animation(.easeInOut(duration: 1.0), value: scaleEffect)
-                                    }
-                                    .padding(20)
-                                    
-                                    ProgressRing(value: animatedProgress, gradient: LinearGradient(colors: [selectedColor, selectedColor.opacity(0.5)], startPoint: .top, endPoint: .bottom))
-                                    }
-//                                HStack{
-//                                    
-//                                    Button(action: {
-//                                        showModal = true
-//                                    }) {
-//                                        HStack {
-//                                            Image(systemName: "paintpalette")
-//                                            Text("色を変更")
-//                                        }
-//                                        .padding(5)
-//                                        .foregroundColor(Color("fontGray"))
-//                                        .font(.system(size: 25))
-//                                        .overlay(
-//                                            RoundedRectangle(cornerRadius: 10)
-//                                                .stroke(Color("fontGray"), lineWidth: 1)
-//                                        )
-//                                        .padding(.leading,3)
-//                                    }
-//                                }
-                                Spacer()
-                                Spacer()
-                                Spacer()
+                                    Text("月のお給料と給料日を入力してください")
+                                        .bold()
+                                        .font(.system(size: 20))
+                                }
+                            }.onTapGesture {
+                                modalFlag = true
                             }
-                        }
-                        .onAppear {
-                            authManager.fetchUserFlag { userFlag, error in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                } else if let userFlag = userFlag {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                        if userFlag == 0 {
-                                            executeProcessEveryFifthTimes()
+                        } else {
+                            ZStack {
+                                VStack{
+                                    Spacer()
+                                    HStack {
+                                        Spacer()
+                                        Button(action: {
+                                            editFlag = true
+                                        }) {
+                                            Image(systemName: "gearshape.fill")
+                                                .font(.system(size: 30))
                                         }
+                                        .padding(5)
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color("fontGray"), lineWidth: 1)
+                                        )
+                                    }.padding(.trailing)
+                                    Spacer()
+                                        .frame(height: 110)
+                                    ZStack {
+                                        VStack {
+                                            Text("給料日までの収入額")
+                                                .font(.system(size: isSmallDevice() ? 32 : 34))
+                                            Text("¥\(Int(calculator.accumulatedSalary(for: selectedUnit)))")
+                                                .font(.system(size: 54))
+                                                .scaleEffect(scaleEffect)
+                                                .animation(.easeInOut(duration: 1.0), value: scaleEffect)
+                                        }
+                                        .padding(20)
+                                        
+                                        ProgressRing(value: animatedProgress, gradient: LinearGradient(colors: [selectedColor, selectedColor.opacity(0.5)], startPoint: .top, endPoint: .bottom))
                                     }
+                                    //                                HStack{
+                                    //
+                                    //                                    Button(action: {
+                                    //                                        showModal = true
+                                    //                                    }) {
+                                    //                                        HStack {
+                                    //                                            Image(systemName: "paintpalette")
+                                    //                                            Text("色を変更")
+                                    //                                        }
+                                    //                                        .padding(5)
+                                    //                                        .foregroundColor(Color("fontGray"))
+                                    //                                        .font(.system(size: 25))
+                                    //                                        .overlay(
+                                    //                                            RoundedRectangle(cornerRadius: 10)
+                                    //                                                .stroke(Color("fontGray"), lineWidth: 1)
+                                    //                                        )
+                                    //                                        .padding(.leading,3)
+                                    //                                    }
+                                    //                                }
+                                    Spacer()
+                                    Spacer()
+                                    Spacer()
                                 }
                             }
-                           
-                            withAnimation(.easeInOut(duration: 2.5)) {
-                                scaleEffect = 1.0
-                            }
-                            moveCoin = true
-                            fadeOutCoin = true
-                            
-                            if let user = Auth.auth().currentUser {
-                                userId = user.uid
-                                loadUserColor()
-                            }
-                            
-                            Timer.scheduledTimer(withTimeInterval: 1000000, repeats: true) { _ in
+                            .onAppear {
+                                
+                                withAnimation(.easeInOut(duration: 2.5)) {
+                                    scaleEffect = 1.0
+                                }
+                                moveCoin = true
+                                fadeOutCoin = true
+                                
+                                if let user = Auth.auth().currentUser {
+                                    userId = user.uid
+                                    loadUserColor()
+                                }
+                                
+//                                Timer.scheduledTimer(withTimeInterval: 1000000, repeats: true) { _ in
                                 currentDate = Date()
-                                checkAndSaveSalaryHistory(calculator: calculator)
-                            }
-                            
-                            Timer.scheduledTimer(withTimeInterval: selectedUnit == .second ? 1.0 : selectedUnit == .minute ? 60.0 : 3600.0, repeats: true) { _ in
-                               currentDate = Date()
-                               let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
-                               withAnimation {
-                                   animatedProgress = calculator.progress
-                               }
-                           }
-                        }
-                        .onChange(of: editFlag) { newValue in
-                            if !newValue {
-                                print("onchange")
-                                print("isLoading1:\(isLoading)")
-                                loadUserDataModal(){
+//                                checkAndSaveSalaryHistory(calculator: calculator)
+//                                }
+                                
+                                Timer.scheduledTimer(withTimeInterval: selectedUnit == .second ? 1.0 : selectedUnit == .minute ? 60.0 : 3600.0, repeats: true) { _ in
+                                    currentDate = Date()
                                     let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
                                     withAnimation {
                                         animatedProgress = calculator.progress
                                     }
                                 }
-                                print("isLoading2:\(isLoading)")
+                            }
+                            .onChange(of: editFlag) { newValue in
+                                if !newValue {
+                                    loadUserDataModal(){
+                                        let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
+                                        withAnimation {
+                                            animatedProgress = calculator.progress
+                                        }
+                                    }
+                                    print("isLoading2:\(isLoading)")
+                                }
                             }
                         }
-                    }
-                    
-                    Spacer()
-                }
-                .onChange(of: modalFlag) { newValue in
-                    if newValue {
-                        loadUserDataModal(){
-                            print("onchange")
-                            let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
-                            withAnimation {
-                                animatedProgress = calculator.progress
-                            }
-                        }
+                        
+                        Spacer()
                     }
                 }
+                
+                if csFlag {
+                    HelpModalView(isPresented: $csFlag, showAlert: $showAlert)
+                }
+                
+//                if modalFlag {
+//                    SalaryInputModalView(isPresented: $modalFlag, showAlert: $modalFlag)
+//                }
+                
+//                if editFlag {
+//                    EditModalView(isPresented: $editFlag, showAlert: $editFlag, selectedColor: $selectedColor, selectedUnit: $selectedUnit)
+//                }
+                
+                if startFlag {
+                    TutorialModalView(isPresented: $startFlag, showAlert: $startFlag)
+                }
             }
-            
-            if csFlag {
-                HelpModalView(isPresented: $csFlag, showAlert: $showAlert)
-            }
-            
-            if modalFlag {
-                SalaryInputModalView(isPresented: $modalFlag, showAlert: $modalFlag)
-            }
-            
-            if editFlag {
-                EditModalView(isPresented: $editFlag, showAlert: $editFlag, selectedColor: $selectedColor, selectedUnit: $selectedUnit)
-            }
-            
-            if startFlag {
-                TutorialModalView(isPresented: $startFlag, showAlert: $startFlag)
+        }
+        .background {
+            if adFlag {
+//                adViewControllerRepresentable
+//                    .frame(width: .zero, height: .zero)
             }
         }
         .onAppear {
-            loadUserData(){
-                let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
-                withAnimation {
-                    animatedProgress = calculator.progress
+            executeProcessEveryAdFifthTimes()
+            DispatchQueue.main.async {
+                if !interstitial.interstitialAdLoaded && interstitial.wasAdDismissed == false {
+                    interstitial.loadInterstitial(completion: { isLoaded in
+                        if isLoaded {
+                            self.interstitial.presentInterstitial(from: adViewControllerRepresentable.viewController)
+                        }
+                    })
+                } else if !interstitial.wasAdDismissed {
+                    interstitial.presentInterstitial(from: adViewControllerRepresentable.viewController)
                 }
             }
+            authManager.fetchUserFlag { userFlag, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let userFlag = userFlag {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        if userFlag == 0 {
+                            executeProcessEveryFifthTimes()
+                        }
+                    }
+                }
+            }
+            loadUserData(){
+//                let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
+//                withAnimation {
+//                    animatedProgress = calculator.progress
+//                }
+                
+                checkAndUpdateSalaryHistory {
+                    let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
+                    withAnimation {
+                        animatedProgress = calculator.progress
+                    }
+                }
+            }
+            let userDefaults = UserDefaults.standard
+            if !userDefaults.bool(forKey: "hasLaunchedBeforeOnappear") {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    startFlag = true
+                    showCreateButton = true
+                }
+            }
+            userDefaults.set(true, forKey: "hasLaunchedBeforeOnappear")
+            userDefaults.synchronize()
         }
-        .sheet(isPresented: $showModal) {
-            ColorPickerView(selectedColor: $selectedColor)
+        .sheet(isPresented: $editFlag) {
+            EditModalView(isPresented: $editFlag, showAlert: $editFlag, selectedColor: $selectedColor, selectedUnit: $selectedUnit, showDetails: $showDetails)
                 .presentationDetents([
                     .large,
-                    .fraction(isSmallDevice() ? 0.50 : 0.40)
+                    .fraction(showDetails ? (isSmallDevice() ? 0.85 : 0.75) : (isSmallDevice() ? 0.50 : 0.45))
+                ])
+        }
+        .sheet(isPresented: $modalFlag) {
+            SalaryInputModalView(isPresented: $modalFlag, showAlert: $modalFlag, flag: $showCreateButton)
+                .presentationDetents([
+                    .large,
+                    .fraction(isSmallDevice() ? 0.45 : 0.4)
                 ])
         }
         .background(Color("backgroundColor"))
         .foregroundColor(Color("fontGray"))
+        .onChange(of: showCreateButton) { newValue in
+//            if newValue {
+                loadUserDataModal(){
+                    let calculator = SalaryCalculator(salaryDay: salaryDay, monthlySalary: monthlySalary, currentDate: currentDate)
+                    withAnimation {
+                        animatedProgress = calculator.progress
+                    }
+                }
+//            }
+        }
     }
 
     func loadUserData(completion: @escaping () -> Void) {
@@ -395,6 +443,100 @@ struct SalaryView: View {
         }
     }
     
+    func checkAndUpdateSalaryHistory(completion: @escaping () -> Void) {
+            guard let userId = Auth.auth().currentUser?.uid else {
+                print("ユーザーがログインしていません")
+                completion()
+                return
+            }
+
+            // Fetch the lastSalarySavedDate
+            ref.child("salarySettings").child(userId).observeSingleEvent(of: .value) { snapshot in
+                guard let salarySettings = snapshot.value as? [String: Any],
+                      let lastSalarySavedDateString = salarySettings["lastSalarySavedDate"] as? String,
+                      let salaryDay = salarySettings["salaryDay"] as? Int,
+                      let monthlySalary = salarySettings["monthlySalary"] as? Double,
+                      let lastSalarySavedDate = dateFormatter.date(from: lastSalarySavedDateString) else {
+                    print("必要な給与設定データが不足しています")
+                    completion()
+                    return
+                }
+
+                let calendar = Calendar.current
+                let currentDate = Date()
+
+                // Check if current date is after lastSalarySavedDate
+                if currentDate <= lastSalarySavedDate {
+                    // No update needed
+                    completion()
+                    return
+                }
+
+                // Initialize a date variable to iterate from lastSalarySavedDate
+                var tempDate = lastSalarySavedDate
+
+                // Prepare to collect salary history entries
+                var salaryHistories: [[String: Any]] = []
+
+                while tempDate < currentDate {
+                    // Calculate next salary day
+                    if let nextSalaryDate = calendar.date(byAdding: .month, value: 1, to: tempDate) {
+                        var components = calendar.dateComponents([.year, .month], from: nextSalaryDate)
+                        components.day = salaryDay
+
+                        // Handle months where salaryDay exceeds the number of days
+                        if let adjustedDate = calendar.date(from: components) {
+                            tempDate = adjustedDate
+                        } else {
+                            // If the month doesn't have the salaryDay, set to the last day of the month
+                            if let lastDayRange = calendar.range(of: .day, in: .month, for: nextSalaryDate),
+                               let lastDay = lastDayRange.last {
+                                var adjustedComponents = calendar.dateComponents([.year, .month], from: nextSalaryDate)
+                                adjustedComponents.day = lastDay
+                                if let adjustedDate = calendar.date(from: adjustedComponents) {
+                                    tempDate = adjustedDate
+                                }
+                            }
+                        }
+
+                        // If the calculated salary date is still before the current date, add to history
+                        if tempDate < currentDate {
+                            let salaryDayString = dateFormatter.string(from: tempDate)
+                            let salaryEntry: [String: Any] = [
+                                "monthlySalary": monthlySalary,
+                                "salaryDay": salaryDayString
+                            ]
+                            salaryHistories.append(salaryEntry)
+                        }
+                    } else {
+                        break // Exit the loop if date calculation fails
+                    }
+                }
+
+                // Write each salary history entry to Firebase
+                let salaryHistoryRef = self.ref.child("salaryHistorys").child(userId)
+                for salaryEntry in salaryHistories {
+                    let newHistoryRef = salaryHistoryRef.childByAutoId()
+                    newHistoryRef.setValue(salaryEntry) { error, _ in
+                        if let error = error {
+                            print("給与履歴の保存中にエラーが発生しました: \(error.localizedDescription)")
+                        }
+                    }
+                }
+
+                // Update lastSalarySavedDate to the latest salary day
+                let latestSalaryDate = salaryHistories.last?["salaryDay"] as? String ?? dateFormatter.string(from: tempDate)
+                self.ref.child("salarySettings").child(userId).child("lastSalarySavedDate").setValue(latestSalaryDate) { error, _ in
+                    if let error = error {
+                        print("lastSalarySavedDateの更新中にエラーが発生しました: \(error.localizedDescription)")
+                    } else {
+                        print("lastSalarySavedDateが正常に更新されました: \(latestSalaryDate)")
+                    }
+                    completion()
+                }
+            }
+        }
+    
     func loadUserDataModal(completion: @escaping () -> Void) {
         guard let userId = Auth.auth().currentUser?.uid else {
             print("ユーザーがログインしていません")
@@ -408,10 +550,10 @@ struct SalaryView: View {
                     self.monthlySalary = monthlySalary
                     self.showCreateButton = false
                 } else {
-                    self.showCreateButton = true  // データが存在しない場合、新規作成ボタンを表示
+                    self.showCreateButton = true
                 }
             } else {
-                self.showCreateButton = true  // データが存在しない場合、新規作成ボタンを表示
+                self.showCreateButton = true
             }
             completion() // データ取得完了後にクロージャを呼び出す
         }
@@ -428,45 +570,23 @@ struct SalaryView: View {
         }
     }
 
-    func checkAndSaveSalaryHistory(calculator: SalaryCalculator) {
-        let calendar = Calendar.current
-        let currentDay = calendar.component(.day, from: currentDate)
-        
-        guard let userId = Auth.auth().currentUser?.uid else { return }
-        let salaryHistoryRef = ref.child("salaryHistorys").child(userId)
-        let userSettingsRef = ref.child("salarySettings").child(userId)
-        
-        userSettingsRef.child("lastSalarySavedDate").observeSingleEvent(of: .value) { snapshot in
-            let lastSalarySavedDateString = snapshot.value as? String ?? ""
-            let lastSalarySavedDate = dateFormatter.date(from: lastSalarySavedDateString) ?? Date.distantPast
-            
-            var currentCheckDate = lastSalarySavedDate
-            var daysToCheck = 0
-            
-            while currentCheckDate < currentDate {
-                currentCheckDate = calendar.date(byAdding: .day, value: 1, to: currentCheckDate) ?? currentCheckDate
-                daysToCheck += 1
-                
-                let dayComponent = calendar.component(.day, from: currentCheckDate)
-                if dayComponent == self.salaryDay {
-                    let salaryData = [
-                        "monthlySalary": self.monthlySalary,
-                        "salaryDay": dateFormatter.string(from: currentCheckDate)
-                    ] as [String : Any]
-                    salaryHistoryRef.childByAutoId().setValue(salaryData)
-                }
-            }
-            
-            userSettingsRef.child("lastSalarySavedDate").setValue(dateFormatter.string(from: currentDate))
-        }
-    }
-
     func executeProcessEveryFifthTimes() {
         let countForTenTimes = UserDefaults.standard.integer(forKey: "launchCountForThreeTimes") + 1
         UserDefaults.standard.set(countForTenTimes, forKey: "launchCountForThreeTimes")
         
         if countForTenTimes % 10 == 0 {
             csFlag = true
+        }
+    }
+    
+    func executeProcessEveryAdFifthTimes() {
+        let countForTenTimes = UserDefaults.standard.integer(forKey: "launchCountForAdThreeTimes") + 1
+        UserDefaults.standard.set(countForTenTimes, forKey: "launchCountForAdThreeTimes")
+        
+        print("countForTenTimes:\(countForTenTimes)")
+        if countForTenTimes % 5 == 0 {
+            print("executeProcessEveryAdFifthTimes")
+            adFlag = true
         }
     }
 
@@ -484,5 +604,5 @@ var dateFormatter: DateFormatter = {
 }()
 
 #Preview {
-    SalaryView()
+    TopView()
 }

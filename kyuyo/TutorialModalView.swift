@@ -32,7 +32,7 @@ struct TutorialModalView: View {
                         .frame(height: 130)
                         .padding(-15)
                     Text("インストールありがとうございます！\n\nこのアプリは給料日まで自分が\nどれくらい稼いでいるかを確認することができて\n仕事のモチベーションを上げることができるサービスです")
-                        .font(.system(size: isSmallDevice() ? 17 : 17))
+                        .font(.system(size: isSmallDevice() ? 16 : 17))
                         .multilineTextAlignment(.center)
                         .padding(.vertical)
                 }

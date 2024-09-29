@@ -14,10 +14,11 @@ struct SalaryInputModalView: View {
     @State var toggle = false
     @State private var text: String = ""
     @Binding var showAlert: Bool
+    @Binding var flag: Bool
     @State private var totalCount: Int = 1
     @State private var selectedSample: String = "選択してください"
     private let habitSamples = ["サンプル入力","本を1冊読む", "ジョギングを3回する", "ジムに2回行く", "自炊を4回する"]
-    @State private var title: String = ""
+    @State private var title: Int = 0
     @State private var isTitleValid: Bool = true
     @State private var selectedDate: Date = Date()
     @State private var selectedPayday: String = "25日"
@@ -25,16 +26,17 @@ struct SalaryInputModalView: View {
     @State private var customDate: Date = Date()
 
     var body: some View {
-        ZStack {
-            Color.black.opacity(0.4)
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    if toggle {
-                        authManager.updateUserFlag(userId: authManager.currentUserId!, userFlag: 1) { success in }
-                    }
-                    isPresented = false
-                }
+//        ZStack {
+//            Color.black.opacity(0.4)
+//                .edgesIgnoringSafeArea(.all)
+//                .onTapGesture {
+//                    if toggle {
+//                        authManager.updateUserFlag(userId: authManager.currentUserId!, userFlag: 1) { success in }
+//                    }
+//                    isPresented = false
+//                }
             VStack(spacing: -25) {
+                Spacer()
                 VStack(alignment: .leading) {
                     HStack {
                         Text(" ")
@@ -43,14 +45,14 @@ struct SalaryInputModalView: View {
                         Text("月のお給料を入力")
                         Spacer()
                     }
-                    TextField("1000000", text: $title)
+                    TextField("1000000", value: $title, format: .number)
                         .multilineTextAlignment(.trailing)
                         .border(Color.clear, width: 0)
                         .font(.system(size: 18))
                         .cornerRadius(8)
-                        .onChange(of: title) { newValue in
-                            isTitleValid = !newValue.isEmpty
-                        }
+//                        .onChange(of: title) { newValue in
+//                            isTitleValid = !newValue.isEmpty
+//                        }
                     Divider()
                     
                     HStack {
@@ -77,57 +79,51 @@ struct SalaryInputModalView: View {
                     }
                     .padding(.top)
                     Divider()
-
-                    if isTitleValid {
-                        Text("習慣が入力されていません")
-                            .foregroundColor(.red)
-                            .opacity(0)
-                    } else {
-                        Text("習慣が入力されていません")
-                            .foregroundColor(.red)
-                    }
                     HStack {
                         Spacer()
                         Button(action: saveSalarySettings) {
                             Text("送信")
-                                .fontWeight(.semibold)
-                                .frame(width: 130, height: 40)
-                                .foregroundColor(Color.white)
-                                .background(Color.gray)
-                                .cornerRadius(24)
+                                .frame(maxWidth:.infinity)
                         }
-                        .shadow(radius: 3)
+                        .padding()
+                        .background(Color("buttonColor"))
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                        .padding(.top)
+                        .padding(.bottom)
+                        .shadow(radius: 1)
                         Spacer()
                     }
                 }
             }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
             .padding()
-            .frame(width: isSmallDevice() ? 290 : 320)
+//            .frame(width: isSmallDevice() ? 290 : 320)
             .foregroundColor(Color("fontGray"))
-            .padding()
+//            .padding()
             .background(Color("backgroundColor"))
-            .cornerRadius(20)
-            .shadow(radius: 10)
-            .overlay(
-                Button(action: {
-                    if toggle {
-                        authManager.updateUserFlag(userId: authManager.currentUserId!, userFlag: 1) { success in }
-                    }
-                    isPresented = false
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.gray)
-                        .background(.white)
-                        .cornerRadius(30)
-                        .padding()
-                }
-                .offset(x: 35, y: -35),
-                alignment: .topTrailing
-            )
-            .padding(25)
-        }
+//            .cornerRadius(20)
+//            .shadow(radius: 10)
+//            .overlay(
+//                Button(action: {
+//                    if toggle {
+//                        authManager.updateUserFlag(userId: authManager.currentUserId!, userFlag: 1) { success in }
+//                    }
+//                    isPresented = false
+//                }) {
+//                    Image(systemName: "xmark.circle.fill")
+//                        .resizable()
+//                        .frame(width: 50, height: 50)
+//                        .foregroundColor(.gray)
+//                        .background(.white)
+//                        .cornerRadius(30)
+//                        .padding()
+//                }
+//                .offset(x: 35, y: -35),
+//                alignment: .topTrailing
+//            )
+//            .padding(25)
+//        }
     }
 
     func saveSalarySettings() {
@@ -138,10 +134,18 @@ struct SalaryInputModalView: View {
         let salaryDay = selectedPayday == "その他の日付" ? Calendar.current.component(.day, from: customDate) : Int(selectedPayday.replacingOccurrences(of: "日", with: "")) ?? 1
         let monthlySalary = Double(title) ?? 0
         
+        // 現在の年月を取得
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM"
+        let currentYearMonth = dateFormatter.string(from: Date())
+        
+        // lastSalarySavedDateの構築
+        let lastSalarySavedDate = "\(currentYearMonth)-\(Int(salaryDay))"
+        
         let salaryData: [String: Any] = [
             "salaryDay": salaryDay,
             "monthlySalary": monthlySalary,
-            "lastSalarySavedDate": dateFormatter.string(from: Date())
+            "lastSalarySavedDate": lastSalarySavedDate
         ]
         
         userRef.setValue(salaryData) { error, _ in
@@ -153,9 +157,11 @@ struct SalaryInputModalView: View {
         }
         
         isPresented = false
+        flag = false
     }
+
 }
 
 #Preview {
-    SalaryInputModalView(isPresented: .constant(true), showAlert: .constant(false))
+    SalaryInputModalView(isPresented: .constant(true), showAlert: .constant(false), flag: .constant(false))
 }

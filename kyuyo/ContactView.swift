@@ -87,6 +87,8 @@ struct ContactTabView: View {
                             .background(Color.gray)
                             .cornerRadius(24)
                     })
+                    .opacity(text.isEmpty ? 0.5 : 1)
+                    .disabled(text.isEmpty)
                     .shadow(radius: 3)
                     .padding(.top,10)
                     .alert(isPresented: $showAlert) { // アラートを表示する

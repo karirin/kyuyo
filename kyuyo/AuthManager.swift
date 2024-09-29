@@ -8,10 +8,19 @@
 import SwiftUI
 import Firebase
 
+struct UserData {
+    var id: String
+    var createTime: String
+    var tutorialNum: Int
+    var userFlag: Int
+    var selectedColor: String
+}
+
 class AuthManager: ObservableObject {
     @Published var user: FirebaseAuth.User?
     @Published var rewardPoint: Int = 0
     @Published var dateRangeText: String = ""
+    @Published var userData: UserData?
     var onLoginCompleted: (() -> Void)?
     
     init() {
@@ -28,7 +37,6 @@ class AuthManager: ObservableObject {
     }
         
     func createUser(completion: @escaping () -> Void) {
-
         guard let userId = user?.uid else {
             print("ユーザーがログインしていません")
             completion() // 早期リターン時にもコールバックを呼ぶ
@@ -42,20 +50,18 @@ class AuthManager: ObservableObject {
         
         userRef.observeSingleEvent(of: .value) { snapshot in
             if snapshot.exists() {
-//                if let rewardPoint = snapshot.value as? Int {
-//                    DispatchQueue.main.async {
-//                        self.rewardPoint = rewardPoint
-//                        completion() // 非同期処理完了後にコールバックを実行
-//                    }
-//                }
+                // ユーザーが既に存在する場合、特に何もしない
             } else {
-                userRef.setValue(["createTime": currentDate, "tutorialNum": 1,"userFlag": 0, "selectedColor": 000080]) { error, _ in
+                // 新しいユーザーを作成
+                userRef.setValue(["createTime": currentDate, "tutorialNum": 1,"userFlag": 0, "selectedColor": "000080"]) { error, _ in
                     DispatchQueue.main.async {
                         if let error = error {
                             print("ユーザー作成時にエラーが発生しました: \(error.localizedDescription)")
                         } else {
                             self.rewardPoint = 0
                             print("新しいユーザーが作成されました。rewardPointは0からスタートします。")
+                            // サンプルデータの作成
+                            self.createSampleRewards(for: userId)
                         }
                         completion() // エラーの有無にかかわらず、処理完了後にコールバックを実行
                     }
@@ -64,6 +70,25 @@ class AuthManager: ObservableObject {
         }
     }
 
+    func createSampleRewards(for userId: String) {
+        let rewardsRef = Database.database().reference().child("rewards").child(userId)
+        
+        let sampleRewards = [
+            ["title": "【サンプル】旅行に行く", "amount": 25000, "icon": "ご褒美６", "flag": false],
+            ["title": "【サンプル】時計を買う", "amount": 200000, "icon": "ご褒美４", "flag": false]
+        ]
+        
+        for sampleReward in sampleRewards {
+            let newRewardRef = rewardsRef.childByAutoId()
+            newRewardRef.setValue(sampleReward) { error, _ in
+                if let error = error {
+                    print("サンプルご褒美の作成時にエラーが発生しました: \(error.localizedDescription)")
+                } else {
+                    print("サンプルご褒美が作成されました。")
+                }
+            }
+        }
+    }
     
     func parseDate(from dateString: String) -> Date? {
         let dateFormatter = DateFormatter()
@@ -414,6 +439,72 @@ class AuthManager: ObservableObject {
                 print("User color updated successfully.")
                 completion(true)
             }
+        }
+    }
+    
+    func fetchUserData(completion: @escaping (Bool, Error?) -> Void) {
+        guard let userId = user?.uid else {
+            let error = NSError(domain: "AuthManager", code: 0, userInfo: [NSLocalizedDescriptionKey: "ログインしていません。"])
+            completion(false, error)
+            return
+        }
+        
+        let userRef = Database.database().reference().child("users").child(userId)
+        userRef.observeSingleEvent(of: .value) { snapshot in
+            if let value = snapshot.value as? [String: Any] {
+                let userData = UserData(
+                    id: userId,
+                    createTime: value["createTime"] as? String ?? "",
+                    tutorialNum: value["tutorialNum"] as? Int ?? 0,
+                    userFlag: value["userFlag"] as? Int ?? 0,
+                    selectedColor: value["selectedColor"] as? String ?? "000080"
+                )
+                self.userData = userData
+                print("self.userData:\(self.userData)")
+                completion(true, nil)
+            } else {
+                let error = NSError(domain: "AuthManager", code: 1, userInfo: [NSLocalizedDescriptionKey: "ユーザーデータを取得できませんでした。"])
+                completion(false, error)
+            }
+        } withCancel: { error in
+            completion(false, error)
+        }
+    }
+    
+    func fetchSalaryDateAndScheduleNotification() {
+        guard let userId = Auth.auth().currentUser?.uid else {
+            print("ユーザーがログインしていません")
+            return
+        }
+        let salarySettingsRef = Database.database().reference().child("salarySettings").child(userId)
+        
+        salarySettingsRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let data = snapshot.value as? [String: Any],
+               let salaryDay = data["salaryDay"] as? Int {
+                
+                // 次の給料日を計算
+                if let nextSalaryDate = self.calculateNextSalaryDate(salaryDay: salaryDay) {
+                    // 既存の通知を削除
+                    NotificationManager.shared.removeSalaryNotification()
+                    // 通知をスケジュール
+                    NotificationManager.shared.scheduleSalaryNotification(salaryDate: nextSalaryDate)
+                }
+            } else {
+                print("給料日の取得に失敗しました")
+            }
+        })
+
+    }
+    
+    private func calculateNextSalaryDate(salaryDay: Int) -> Date? {
+        var components = Calendar.current.dateComponents([.year, .month], from: Date())
+        components.day = salaryDay
+        
+        if let salaryDateThisMonth = Calendar.current.date(from: components), salaryDateThisMonth > Date() {
+            return salaryDateThisMonth
+        } else {
+            components.month = (components.month ?? 0) + 1
+            return Calendar.current.date(from: components)
         }
     }
 }

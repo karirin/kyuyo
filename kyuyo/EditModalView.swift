@@ -8,54 +8,85 @@ struct EditModalView: View {
     @Binding var selectedColor: Color
     @Binding var selectedUnit: TimeUnit  // TimeUnitのバインディングを追加
     @State private var salaryDay: Int = 25
-    @State private var monthlySalary: String = ""
+    @State private var monthlySalary: Int = 0
     private let paydayOptions = [15, 20, 25, 31, -1]
     @State private var customDate: Date = Date()
     @State private var isCustomDateVisible: Bool = false
+    @Binding var showDetails: Bool
     var ref: DatabaseReference = Database.database().reference()
 
     var body: some View {
-        ZStack {
-            Color.black.opacity(0.4)
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    isPresented = false
-                }
+//        ZStack {
+//            Color.black.opacity(0.4)
+//                .edgesIgnoringSafeArea(.all)
+//                .onTapGesture {
+//                    isPresented = false
+//                }
             VStack(spacing: 20) {
-                salaryInputSection
-                salaryDayPickerSection
-                timeUnitPickerSection
-                colorPickerSection
+
+Spacer()
+                if showDetails {
+                    salaryInputSection
+                    salaryDayPickerSection
+                    timeUnitPickerSection
+                    colorPickerSection
+                    Button(action: {
+                        withAnimation {
+                            showDetails.toggle()
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: showDetails ? "chevron.up" : "chevron.down")
+                            Text(showDetails ? "戻る" : "より詳細な編集")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                } else {
+                    salaryInputSection
+                    salaryDayPickerSection
+                    Button(action: {
+                        withAnimation {
+                            showDetails.toggle()
+                        }
+                    }) {
+                        HStack {
+                            Image(systemName: showDetails ? "chevron.up" : "chevron.down")
+                            Text(showDetails ? "戻る" : "より詳細な編集")
+                                .fontWeight(.semibold)
+                        }
+                    }
+                }
                 saveButton
             }
+            .frame(maxWidth: .infinity,maxHeight: .infinity)
             .padding()
-            .frame(width: isSmallDevice() ? 290 : 320)
+//            .frame(width: isSmallDevice() ? 290 : 320)
             .foregroundColor(Color("fontGray"))
-            .padding()
+//            .padding()
             .background(Color("backgroundColor"))
-            .cornerRadius(20)
-            .shadow(radius: 10)
-            .overlay(
-                Button(action: {
-                    isPresented = false
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                        .foregroundColor(.gray)
-                        .background(.white)
-                        .cornerRadius(30)
-                        .padding()
-                }
-                .offset(x: 35, y: -35),
-                alignment: .topTrailing
-            )
-            .padding(25)
+//            .cornerRadius(20)
+//            .shadow(radius: 10)
+//            .overlay(
+//                Button(action: {
+//                    isPresented = false
+//                }) {
+//                    Image(systemName: "xmark.circle.fill")
+//                        .resizable()
+//                        .frame(width: 50, height: 50)
+//                        .foregroundColor(.gray)
+//                        .background(.white)
+//                        .cornerRadius(30)
+//                        .padding()
+//                }
+//                .offset(x: 35, y: -35),
+//                alignment: .topTrailing
+//            )
+//            .padding(25)
             .onAppear {
                 loadSalaryInfo()
             }
         }
-    }
+//    }
 
     private var salaryInputSection: some View {
         VStack(alignment: .leading, spacing: 15) {
@@ -66,7 +97,7 @@ struct EditModalView: View {
                 Text("月のお給料を入力")
                 Spacer()
             }
-            TextField("1000000", text: $monthlySalary)
+            TextField("1000000", value: $monthlySalary, format: .number)
                 .multilineTextAlignment(.trailing)
                 .border(Color.clear, width: 0)
                 .font(.system(size: 18))
@@ -162,15 +193,26 @@ struct EditModalView: View {
                         print("Failed to update salary info.")
                     }
                 }
+                if let userId = authManager.user?.uid {
+                    authManager.updateUserColor(userId: userId, color: selectedColor) { success in
+                        if success {
+                            print("Color saved successfully")
+                        } else {
+                            print("Failed to save color")
+                        }
+                    }
+                }
             }, label: {
                 Text("保存")
-                    .fontWeight(.semibold)
-                    .frame(width: 130, height: 40)
-                    .foregroundColor(Color.white)
-                    .background(Color.gray)
-                    .cornerRadius(24)
+                .frame(maxWidth:.infinity)
             })
-            .shadow(radius: 3)
+            .padding()
+            .background(Color("buttonColor"))
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            .padding(.top)
+            .padding(.bottom)
+            .shadow(radius: 1)
             Spacer()
         }
     }
@@ -182,7 +224,7 @@ struct EditModalView: View {
                 if let salaryDay = value["salaryDay"] as? Int,
                    let monthlySalary = value["monthlySalary"] as? Double {
                     self.salaryDay = salaryDay
-                    self.monthlySalary = String(format: "%.0f", monthlySalary)  // Double を整数形式で String に変換
+                    self.monthlySalary = Int(monthlySalary)  // Double を整数形式で String に変換
                 }
             }
         }
@@ -194,7 +236,7 @@ struct EditModalView_Previews: PreviewProvider {
         EditModalView(
             isPresented: .constant(true),
             showAlert: .constant(false),
-            selectedColor: .constant(.blue), selectedUnit: .constant(.second)
+            selectedColor: .constant(.blue), selectedUnit: .constant(.second), showDetails: .constant(false)
         )
     }
 }

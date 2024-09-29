@@ -1068,6 +1068,8 @@ PODS:
     - GoogleUtilities/Environment (~> 7.12)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
   - FSCalendar (2.8.4)
+  - Google-Mobile-Ads-SDK (11.5.0):
+    - GoogleUserMessagingPlatform (>= 1.1)
   - GoogleAppMeasurement (10.28.0):
     - GoogleAppMeasurement/AdIdSupport (= 10.28.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
@@ -1092,6 +1094,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30911.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUserMessagingPlatform (2.5.0)
   - GoogleUtilities/AppDelegateSwizzler (7.13.3):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -1218,6 +1221,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - FSCalendar
+  - Google-Mobile-Ads-SDK (<= 11.5.0)
 
 SPEC REPOS:
   trunk:
@@ -1241,8 +1245,10 @@ SPEC REPOS:
     - FirebaseSharedSwift
     - FirebaseStorage
     - FSCalendar
+    - Google-Mobile-Ads-SDK
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleUserMessagingPlatform
     - GoogleUtilities
     - "gRPC-C++"
     - gRPC-Core
@@ -1274,8 +1280,10 @@ SPEC CHECKSUMS:
   FirebaseSharedSwift: 48de4aec81a6b79bb30404e5e6db43ea74848fed
   FirebaseStorage: b152225e6782299fce586cd5c90aca60c1bb9607
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+  Google-Mobile-Ads-SDK: 7db2098033ad3bfcd72a11e7503b49700a93029e
   GoogleAppMeasurement: 55a4a3c8000c1280d68bf4c084adbfef20c49db1
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
+  GoogleUserMessagingPlatform: 6b4f48a370e77ce121d034c908cc6ee4fdafaf13
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
   "gRPC-C++": e725ef63c4475d7cdb7e2cf16eb0fde84bd9ee51
   gRPC-Core: eee4be35df218649fe66d721a05a7f27a28f069b
@@ -1286,6 +1294,6 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
 
-PODFILE CHECKSUM: 4fb193bfffb2a21e4d7ca0e946c47e4d825df75b
+PODFILE CHECKSUM: e230dcfe42d5e688690689a9a26009c3fb6cc79b
 
 COCOAPODS: 1.14.3
